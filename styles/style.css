@@ -1,0 +1,78 @@
+:root {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  --color-background: beige;
+}
+body {
+  margin: 0;
+}
+
+main {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 2px;
+}
+
+section {
+  transform-style: preserve-3d;
+  position: relative;
+
+  align-items: center;
+}
+
+section.no-parallax {
+  background-color: var(--color-background);
+  z-index: 2;
+}
+
+
+section.no-parallax {
+  padding: 2em 5em;
+  height: 55vh;
+}
+section.parallax {
+  height: 100vh;
+}
+
+section.parallax::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateZ(-1px) scale(1.5);
+  background-size: 100%;
+  z-index: -1;
+}
+
+.bg1::after {
+  background: url("/img/bg1.jpg");
+  background-size: cover;
+}
+.bg2::after {
+  background: url("/img/bg2.jpg");
+  background-size: cover;
+}
+
+section h1 {
+  font-size: 5rem;
+  color: var(--color-background);
+  text-align: center;
+
+  /* center content */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+section .text {
+  font-size: 1.5rem;
+
+  /* center content */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
